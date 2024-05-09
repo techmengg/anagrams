@@ -1,0 +1,82 @@
+For this assignment you will write code for a class named AnagramList which is used to find possible anagrams of a word. Anagrams are formed by rearranging the letters of a word: for example brainy is an anagram of binary. For the purpose of this assignment anagrams do not have to be words themselves: for example raibyn would also be an anagram of binary.
+
+The AnagramList class has a single member variable which is an ArrayList of strings called anagrams and an accessor method to get this variable. The constructor takes a single parameter word, and should use this to create an ordered list containing every possible rearrangement of the characters from word exactly once. See the sample runs for some examples of this.
+
+To assist with this, the constructor should call two private void helper methods which you will implement. You will also write one public method for the class.
+
+completeAnagrams
+The completeAnagrams method has two String parameters, start and end, and should be written recursively.
+A call to completeAnagrams adds strings to the list anagrams formed by taking every possible rearrangement of the characters in end and adding these to the end of start. For example if start is “ab” and end is “cde” then the strings “abcde”, “abced”, “abdce”, “abdec”, “abecd”, and “abedc” should be added to anagrams.
+You will need to add an appropriate call to the completeAnagrams method in your constructor to add all possible anagrams of the parameter word. Think about what arguments would add all possible rearrangements of the characters in word to the list.
+The completeAnagrams method should ideally not add the same string to anagrams more than once. If you are unable to avoid doing this, you will need to remove any repeated strings in the constructor.
+sortAnagrams
+The sortAnagrams method should sort the list anagrams into alphabetical order.
+You may use any of the sorting algorithms you have encountered in the course to implement this method.
+searchAnagrams
+The public searchAnagrams method should return the index of target in the list anagrams, or -1 if this string is not in the list.
+You may use either of the searching algorithms you have seen in the course to implement this method.
+You can test your code by using the runner class (note: the submitted assignment will be tested only with non-empty strings of lower-case letter characters). Be careful to only use small strings (8 characters or less) to test the code. This is because the number of possible anagrams of a word grows factorially as the number of characters increases; it is multiplied by a larger number each time the number of characters increases meaning it gets big very fast. For example the 4 letter word “code” has 24 possible anagrams, but the 8 letter word “computer” has 40,320 possible anagrams. Printing the anagrams of a string with 9 or more letters is likely to cause the code runner to crash.
+
+Do not add a main method to the AnagramsList class as this will cause your code to be graded incorrectly.
+
+--------------------------------------------------------------------------------------------------------
+
+Milestones
+Milestone 1: Initialize the anagrams variable in the constructor and add a call to completeAnagrams with appropriate parameters. Complete the base case for the completeAnagrams method which adds words to the list anagrams. (Hint: think about the simplest possible case for the parameter end.)
+
+Milestone 2: Write code in completeAnagrams for other cases. This will include recursive calls to the same method (completeAnagrams) using different arguments. (Hint: write this initially without worrying about repeats being added to anagrams.)
+
+Milestone 3: Add code to either the constructor or completeAnagrams to ensure that anagrams does not contain any repeats.
+
+Milestone 4: Implement one of the sort algorithms (insertion/selection/merge) in the sortAnagrams method.
+
+Milestone 5: Implement one of the search algorithms (linear/binary) in the searchAnagrams method.
+
+--------------------------------------------------------------------------------------------------------
+
+Sample Runs
+
+Sample Run 1
+
+Enter a word:
+java
+
+Anagrams list:
+[aajv, aavj, ajav, ajva, avaj, avja, jaav, java, jvaa, vaaj, vaja, vjaa]
+
+There are 12 possible anagrams of "java"
+
+Enter a String to search for in these anagrams, or "QUIT" to end:
+avja
+Index of avja is 5
+
+Enter a String to search for in these anagrams, or "QUIT" to end:
+jvva
+Index of jvva is -1
+
+Enter a String to search for in these anagrams, or "QUIT" to end:
+QUIT
+
+--------------------------------------------------------------------------------------------------------
+
+Sample Run 2
+
+Enter a word:
+googol
+
+Anagrams list:
+[gglooo, ggoloo, ggoolo, ggoool, glgooo, glogoo, gloogo, glooog, gogloo, gogolo, gogool, golgoo, gologo, goloog, googlo, googol, goolgo, goolog, gooogl, gooolg, lggooo, lgogoo, lgoogo, lgooog, loggoo, logogo, logoog, looggo, loogog, looogg, oggloo, oggolo, oggool, oglgoo, oglogo, ogloog, ogoglo, ogogol, ogolgo, ogolog, ogoogl, ogoolg, olggoo, olgogo, olgoog, ologgo, ologog, oloogg, oogglo, ooggol, ooglgo, ooglog, oogogl, oogolg, oolggo, oolgog, oologg, oooggl, oooglg, ooolgg]
+
+There are 60 possible anagrams of "googol"
+
+Enter a String to search for in these anagrams, or "QUIT" to end:
+ooolgg
+Index of ooolgg is 59
+
+Enter a String to search for in these anagrams, or "QUIT" to end:
+goggle
+Index of goggle is -1
+
+Enter a String to search for in these anagrams, or "QUIT" to end:
+QUIT
+
